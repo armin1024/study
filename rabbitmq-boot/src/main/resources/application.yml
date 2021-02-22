@@ -1,0 +1,19 @@
+server:
+  port: 40000
+spring:
+  application:
+    name: test‐rabbitmq‐producer
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    virtualHost: /
+    listener:
+      simple:
+        acknowledge-mode: manual #手动签收
+        prefetch: 1 #消费者的消息并发处理数量
+    publisher-confirms: true #消息发送到交换机失败回调
+    publisher-returns: true #消息发送到队列失败回调
+    template:
+      mandatory: true #必须设置成true 消息路由失败通知监听者，而不是将消息丢弃
