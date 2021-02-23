@@ -60,7 +60,7 @@ public class Sender {
                 }
             }
         });
-        // 发送消息
+        // 发送消息(交换机除指定名称外还有默认名称为""【空串】)
         template.convertAndSend(RabbitMqConstant.EXCHANGE_NAME_LOG, "log.first", "[Msg]: SUMMER IS COMING!");
     }
 }
